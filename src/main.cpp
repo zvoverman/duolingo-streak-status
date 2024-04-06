@@ -14,8 +14,6 @@ const char* ntpServer = "pool.ntp.org";
 const long gmtOffset_sec = 0;
 const int daylightOffset_sec = 3600;
 
-const String adjectives[] = {"Savage", "Sultan", "Sorcerer", "Scholar", "Sentinel"};
-
 String g_username = "";
 int g_streak = 0;
 bool g_streak_completed = false;
@@ -99,7 +97,7 @@ void loop() {
   lcd.print("Racha: ");
   lcd.print(g_streak);
 
-  delay(15000);
+  delay(15000); // Wait 15 seconds before switching to streak status
 
   lcd.clear();
   if (g_streak_completed) {
