@@ -26,6 +26,10 @@ bool streakCompletedToday(const String& end) {
   time_t timeinfo;
   time(&timeinfo);
   struct tm* curr_time = localtime(&timeinfo);
+  Serial.print("current time: ");
+  Serial.println(curr_time->tm_mday);
+  Serial.print("last streak time: ");
+  Serial.println(end.substring(8, 10).toInt());
   return curr_time->tm_mday == end.substring(8, 10).toInt();
 }
 
@@ -98,7 +102,7 @@ void loop() {
   delay(15000);
 
   lcd.clear();
-  if (g_streak) {
+  if (g_streak_completed) {
     lcd.setCursor(1, 0);
     lcd.print("Racha Completo");
     lcd.setCursor(0, 1);
